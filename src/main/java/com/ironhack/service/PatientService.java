@@ -22,7 +22,7 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
-    public Optional<Patient> searchByPatientId(int patientId) {
+    public Optional<Patient> getByPatientId(int patientId) {
         return patientRepository.findByPatientId(patientId);
     }
 
@@ -34,9 +34,19 @@ public class PatientService {
         return patientRepository.findAllByAdmittedBy_Department(department);
     }
 
-
-
     public List<Patient> getAllByAdmittedByStatus(Status status) {
         return patientRepository.findAllByAdmittedBy_Status(status);
+    }
+
+    public void save(Patient patient) {
+        patientRepository.save(patient);
+    }
+
+    public void update(int patientId, Patient patient) {
+        Optional<Patient> patientOptional = patientRepository.findById(patientId);
+        if (patientOptional.isPresent()) {
+            patient.setPatientId(patientOptional.get().getPatientId());
+        }
+        patientRepository.save(patient);
     }
 }

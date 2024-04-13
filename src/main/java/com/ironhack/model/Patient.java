@@ -3,14 +3,20 @@ package com.ironhack.model;
 import com.ironhack.model.enums.Status;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "patients")
 @Data
+@Getter
+@Setter
 @NoArgsConstructor
+@DynamicUpdate
 public class Patient {
     @Id
     private int patientId;
