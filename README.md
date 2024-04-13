@@ -62,9 +62,13 @@ Create the following routes as efficiently as possible, using validation where a
 6. **Write a short answer in README.md**. In your `README.md`, write a short answer to the following questions:
 
    - Did you use the same type of route to update patient information as to update an employee's department?
+     _No, for the route to update patient information I used a single update method using PUT, while for the employee updates, I used separate update methods to only update the specific variable, using PATCH._
    - Why did you choose the selected strategy?
+     _For the patient, the request was to be able to update any information. For the employee updates, the assignment was to update specific variables._
    - What are the advantages and disadvantages of the strategies you chose for creating these routes?
+     _The general update method using PUT provides more flexibility, but also provides less clarity. The dedicated route using PATCH handles a very specific action to ensure clarity, but also may result in the need for implementation of many endpoints._
    - What is the cost-benefit between using `PUT` and `PATCH`?
+     _PUT methods may result in larger payloads, potentially including unnecessary data transmission. PATCH methods reduce payloads to only include the specific information that is needed, but more methods may have to be implemented to handle each specific update action._
 
 <br>  
 
